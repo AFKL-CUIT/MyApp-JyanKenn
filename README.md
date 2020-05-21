@@ -1,4 +1,5 @@
 # MyApp-JyanKenn
+[![time tracker](https://wakatime.com/badge/github/AFKL-CUIT/MyApp-JyanKenn.svg)](https://wakatime.com/badge/github/AFKL-CUIT/MyApp-JyanKenn)
 大一工程实践——猜拳游戏
 
 ## 如何游玩
