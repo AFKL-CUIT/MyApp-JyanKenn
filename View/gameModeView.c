@@ -138,6 +138,6 @@ void ViewWinner(PLAYER* Winner)
     else
         printf("======敌方胜利======\n");
 
-    printf("==其它.返回主菜单==\n");
+    printf("==其它. 返回主菜单==\n");
     printf("====N.下一局游戏====\n");
 }
