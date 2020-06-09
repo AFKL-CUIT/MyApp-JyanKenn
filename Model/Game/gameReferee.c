@@ -31,13 +31,13 @@ typedef struct Times
     unsigned int RoundTimes;
 }TIMES;
 
-extern TIMES* ThisGame = NULL;
+TIMES* ThisGame = NULL;
 
 /**
  * From gameReferee.c
  * 定义当前游戏模式的代号
  */
-extern int ModeCode = 0;
+int ModeCode = 0;
 
 /**
  * From gameReferee.c
