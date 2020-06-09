@@ -48,19 +48,19 @@ void InitGame()
         ViewChoose(TmpCode, PageCode);
         IsError ? ViewPrompt("Ñ¡ÔñÓÐÎó") : ViewFoot();
 
-        IsError = 0;
+        IsError = False;
         TmpCode = GetGameModeCode(getch());
 
         if(TmpCode > GameModeNum)
         {
-            if(TmpCode == 73 && TmpModeCode+PageCode-1 < GameModeNum)
+            if(TmpCode == 121 && TmpModeCode+PageCode-1 < GameModeNum)
             {
                 IntoGame(TmpModeCode+PageCode-1);
                 TmpCode = 1;
                 TmpModeCode = TmpCode;
             }
             else
-                IsError = 1;
+                IsError = True;
         }
         else
         {
@@ -119,6 +119,7 @@ void IntoGame(int TmpModeCode)
 
     if(IsError)
         CatchError();
+
     GameOver();
 }
 
