@@ -22,13 +22,13 @@ void ViewFoot();
  * From view.c
  * 定义选择视图
  */
-void ViewChoose(int ModeCode, int PageCode);
+void ViewChoose(int, int);
 
 /**
  * From view.c
  * 定义数据展示视图
  */
-void ViewShowData(GAMEDATA* PlayerData);
+void ViewShowData(GAMEDATA*);
 
 /**
  * From view.c
@@ -40,7 +40,7 @@ void ViewExit();
  * From view.c
  * 定义警告尾部
  */
-void ViewPrompt(char* PromptStr);
+void ViewPrompt(char*);
 
 /**
  * From view.c

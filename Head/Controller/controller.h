@@ -36,7 +36,7 @@ void LittleError();
  * From controller.c
  * 负责游戏数据的转接
  */
-void IntoGame(int TmpModeCode);
+void IntoGame(int);
 
 /**
  * From controller.c
