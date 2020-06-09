@@ -3,53 +3,53 @@
 #endif
 
 /*
-я┐╜я┐╜я┐╜я╢ия┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╧╖я┐╜я┐╜я┐╜я┐╜═╝
+╒т└я╢и╥х┴╦╙╬╧╖╡─╩╙═╝
 */
 
 /**
  * From view.c
- * я┐╜я┐╜я┐╜я┐╜═╖я┐╜я┐╜я┐╜я┐╜═╝
+ * ╢и╥х═╖▓┐╩╙═╝
  */
 void ViewHead();
 
 /**
  * From view.c
- * я┐╜я┐╜я┐╜я┐╜╬▓я┐╜я┐╜я┐╜я┐╜═╝
+ * ╢и╥х╬▓▓┐╩╙═╝
  */
 void ViewFoot();
 
 /**
  * From view.c
- * я┐╜я┐╜я┐╜я┐╜╤бя┐╜я┐╜я┐╜я┐╜═╝
+ * ╢и╥х╤б╘ё╩╙═╝
  */
-void ViewChoose(int, int);
+void ViewChoose(int ModeCode, int PageCode);
 
 /**
  * From view.c
- * я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╒╣╩╛я┐╜я┐╜═╝
+ * ╢и╥х╩¤╛▌╒╣╩╛╩╙═╝
  */
-void ViewShowData(GAMEDATA*);
+void ViewShowData(GAMEDATA* PlayerData);
 
 /**
  * From view.c
- * я┐╜я┐╜я┐╜я┐╜я┐╜╦│я┐╜╥│я┐╜я┐╜
+ * ╢и╥х═╦│Ў╥│├ц
  */
 void ViewExit();
 
 /**
  * From view.c
- * я┐╜я┐╜я┐╜х╛пя┐╜я┐╜╬▓я┐╜я┐╜
+ * ╢и╥х╛п╕ц╬▓▓┐
  */
-void ViewPrompt(char*);
+void ViewPrompt(char* PromptStr);
 
 /**
  * From view.c
- * я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╥│я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜
+ * ╢и╥х┤э╬є╥│├ц╓ў╠х
  */
 void ViewErrorBody();
 
 /**
  * From view.c
- * я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜╥│я┐╜я┐╜╬▓я┐╜я┐╜
+ * ╢и╥х┤э╬є╥│├ц╬▓▓┐
  */
 void ViewErrorFoot();
