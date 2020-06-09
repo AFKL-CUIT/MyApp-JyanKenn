@@ -58,13 +58,13 @@ typedef struct player
  * From player.c
  * 定义了玩家
  */
-extern PLAYER* USER = NULL;
+PLAYER* USER = NULL;
 
 /**
  * From player.c
  * 定义了AI
  */
-extern PLAYER* AI = NULL;
+PLAYER* AI = NULL;
 
 /**
  * From player.c

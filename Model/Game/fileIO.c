@@ -10,7 +10,7 @@
  * From fileIO.c
  * 定义存档的文件指针
  */
-extern FILE* fp = NULL;
+FILE* fp = NULL;
 
 /**
  * From fileIO.c
