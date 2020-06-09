@@ -6,26 +6,21 @@
 这里定义了不同游戏模式的声明和转接
 */
 
-char ClassModeController(PLAYER*, unsigned char, unsigned char);
-char ThreeBloodModeController(PLAYER*, PLAYER*, unsigned char, unsigned char);
-char GamblerHellModeController(PLAYER*, PLAYER*, unsigned char, unsigned char);
-
 /**
  * From gameMode.c
  * 定义游戏模式数量
  */
-extern const int GameModeNum = 3;
+int GameModeNum = 3;
 
 /**
  * From gameMode.c
  * 定义游戏模式名字
  */
-extern const char* GameModeName[] = {"经典模式", "仅三滴血", "赌徒地狱"};
+char* GameModeName[] = {"经典模式", "仅三滴血", "赌徒地狱"};
 
 /**
  * From gameMode.c
  * 经典模式
- * 
  */
 int ClassGameMode(TIMES* Game, PLAYER* P1, PLAYER* P2)
 {
@@ -72,7 +67,7 @@ int ClassGameMode(TIMES* Game, PLAYER* P1, PLAYER* P2)
 
 /**
  * From gameMode.c
- * 三滴血模式
+ * 仅三滴血模式
  */
 int ThreeBloodGameMode(TIMES* Game, PLAYER* P1, PLAYER* P2)
 {
@@ -183,7 +178,7 @@ int GamblerHellGameMode(TIMES* Game, PLAYER* P1, PLAYER* P2)
  * 定义游戏模式对应的函数指针
  */
 typedef const int (*GAMEMODE)(TIMES* ,PLAYER* ,PLAYER*);
-extern const GAMEMODE GameModes[] = {ClassGameMode, ThreeBloodGameMode, GamblerHellGameMode};
+GAMEMODE GameModes[] = {ClassGameMode, ThreeBloodGameMode, GamblerHellGameMode};
 
 
 /**
@@ -194,7 +189,7 @@ extern const GAMEMODE GameModes[] = {ClassGameMode, ThreeBloodGameMode, GamblerH
  */
 int GetGameModeCode(int TmpModeCode)
 {
-    if(48<=TmpModeCode && TmpModeCode<=51)
+    if(48<=TmpModeCode || TmpModeCode<=51)
         TmpModeCode -= 48;
     else if(TmpModeCode == 13){}
     else
@@ -205,7 +200,7 @@ int GetGameModeCode(int TmpModeCode)
 
 /**
  * From gameMode.c
- * 选择某一游戏模式
+ * 选某一游戏模式
  * 
  * int ModeCode 游戏模式代码
  * 

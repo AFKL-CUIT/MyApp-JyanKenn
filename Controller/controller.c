@@ -22,7 +22,7 @@ void Clear()
 
 /**
  * From controller.c
- * 程序初始化
+ * 初始化进程
  */
 void InitExe()
 {
@@ -32,7 +32,7 @@ void InitExe()
 
 /**
  * From controller.c
- * 游戏初始化
+ * 初始化游戏
  */
 void InitGame()
 {
@@ -53,7 +53,7 @@ void InitGame()
 
         if(TmpCode > GameModeNum)
         {
-            if(TmpCode == 121 && TmpModeCode+PageCode-1 < GameModeNum)
+            if(TmpCode == 73 && TmpModeCode+PageCode-1 < GameModeNum)
             {
                 IntoGame(TmpModeCode+PageCode-1);
                 TmpCode = 1;
@@ -102,7 +102,7 @@ void LittleError()
 
 /**
  * From controller.c
- * 负责游戏数据的转接
+ * 进入游戏
  */
 void IntoGame(int TmpModeCode)
 {
@@ -125,7 +125,7 @@ void IntoGame(int TmpModeCode)
 
 /**
  * From controller.c
- * 展示玩家数据
+ * 展示数据
  */
 void ShowData()
 {
