@@ -112,7 +112,6 @@ void WinPlayer(TIMES* Game, PLAYER* Winner, unsigned char WinnerPV)
  */
 void LosePlayer(TIMES* Game, PLAYER* Loser, unsigned char LoserPV)
 {
-    Loser->HP--;
     Game->LosePlayer = Loser;
     Game->PunchValue_Lose = LoserPV;
 }
@@ -168,6 +167,16 @@ PLAYER* JudgeWinAndLose(TIMES* Game, PLAYER* P1, int Punch1, PLAYER* P2, int Pun
         Game->LosePlayer = NULL;
     }
     return WinP;
+}
+
+/**
+ * From gameReferee.c
+ * 对玩家进行扣血
+ */
+int DeductHP(PLAYER* Loser, unsigned int HP)
+{
+    (Loser->HP - HP > 0) ? (Loser->HP -= HP) : (Loser->HP = 0);
+    return Loser->HP;
 }
 
 /**

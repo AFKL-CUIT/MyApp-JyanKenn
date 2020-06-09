@@ -55,13 +55,13 @@ int ClassGameMode(TIMES* Game, PLAYER* P1, PLAYER* P2)
         NotePunch(PlayerPunch(PunchValue_P2), P2);
 
         Winner = JudgeWinAndLose(Game, P1, PunchValue_P1, P2, PunchValue_P2);
+        if(Winner != NULL)
+            DeductHP((Winner == P1) ? P2 : P1, 1);
 
         IsNext = ClassModeController(Winner, PunchValue_P1, PunchValue_P2);
-
         Game->RoundTimes++;
 
         NoteGameData(Winner);
-
         Game->GameTimes++;
     }
     while(IsNext == 'n');
@@ -107,6 +107,8 @@ int ThreeBloodGameMode(TIMES* Game, PLAYER* P1, PLAYER* P2)
             NotePunch(PlayerPunch(PunchValue_P2), P2);
 
             Winner = JudgeWinAndLose(Game, P1, PunchValue_P1, P2, PunchValue_P2);
+            if(Winner != NULL)
+                DeductHP((Winner == P1) ? P2 : P1, 1);
 
             Game->RoundTimes++;
 
@@ -159,11 +161,8 @@ int GamblerHellGameMode(TIMES* Game, PLAYER* P1, PLAYER* P2)
             NotePunch(PlayerPunch(PunchValue_P2), P2);
 
             Winner = JudgeWinAndLose(Game, P1, PunchValue_P1, P2, PunchValue_P2);
-
-            if(Winner == P1)
-                P2->HP = P2->HP + 1 - (PunchValue_P2+1);
-            else if(Winner == P2)
-                P1->HP = P1->HP + 1 - (PunchValue_P1+1);
+            if(Winner != NULL)
+                DeductHP((Winner == P1) ? P2 : P1, (int)(Winner->ThisPunch->PunchValue + 1));
 
             Game->RoundTimes++;
 
@@ -195,21 +194,12 @@ extern const GAMEMODE GameModes[] = {ClassGameMode, ThreeBloodGameMode, GamblerH
  */
 int GetGameModeCode(int TmpModeCode)
 {
-    while(1)
-    {
-        if(48<=TmpModeCode || TmpModeCode<=51)
-        {
-            TmpModeCode -= 48;
-            break;
-        }
-        else if(TmpModeCode == 13)
-            break;
-        else
-        {
-            TmpModeCode = 0;
-            break;
-        }
-    }
+    if(48<=TmpModeCode && TmpModeCode<=51)
+        TmpModeCode -= 48;
+    else if(TmpModeCode == 13){}
+    else
+        TmpModeCode = 0;
+    
     return TmpModeCode;
 }
 
