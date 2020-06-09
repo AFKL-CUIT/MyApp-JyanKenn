@@ -189,19 +189,19 @@ void UnLinkPunch(PLAYER* PlayerPunch)
 {
     PUNCH* Tmp_Del = PlayerPunch->ThisPunch;
 
-    if(Tmp_Del == NULL)
-        return 0;
-
-    PUNCH* Tmp_Next = Tmp_Del->LastPunch;
-
-    while(Tmp_Del != NULL)
+    if(Tmp_Del != NULL)
     {
-        Tmp_Next = Tmp_Del->LastPunch;
-        free(Tmp_Del);
-        Tmp_Del = Tmp_Next;
-    }
+        PUNCH* Tmp_Next = Tmp_Del->LastPunch;
 
-    PlayerPunch->ThisPunch = NULL;
+        while(Tmp_Del != NULL)
+        {
+            Tmp_Next = Tmp_Del->LastPunch;
+            free(Tmp_Del);
+            Tmp_Del = Tmp_Next;
+        }
+
+        PlayerPunch->ThisPunch = NULL;
+    }
 }
 
 /**
