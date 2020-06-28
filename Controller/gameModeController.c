@@ -117,5 +117,6 @@ char GamblerHellModeController(PLAYER* Winner, PLAYER* Loser, unsigned char PV_P
         else
             ViewFoot();
     }
-    
+
+    return IsNext;
 }
