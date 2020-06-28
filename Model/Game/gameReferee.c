@@ -131,41 +131,30 @@ void LosePlayer(TIMES* Game, PLAYER* Loser, unsigned char LoserPV)
 PLAYER* JudgeWinAndLose(TIMES* Game, PLAYER* P1, int Punch1, PLAYER* P2, int Punch2)
 {
     PLAYER* WinP = NULL;
-    if(Punch1 < Punch2)
+
+    PLAYER* WinnerMap[3][3] = {
+                                {NULL, P2, P1},
+                                {P1, NULL, P2},
+                                {P2, P1, NULL}
+                              };
+
+    if((0 <= Punch1 && Punch1 <= 2) && (0 <= Punch2 && Punch2 <= 2))
     {
-        if(Punch2==2 && Punch1==0)
+        WinP = WinnerMap[Punch1][Punch2];
+        if(WinP == P1)
         {
-            WinPlayer(Game, P1, Punch1);
-            LosePlayer(Game, P2, Punch2);
-            WinP = P1;
+            WinPlayer(Game, WinP, Punch1);
+            LosePlayer(Game, (WinP == P1)?(P2):(P1), Punch2);
         }
-        else
+        else if(WinP == P2)
         {
-            WinPlayer(Game, P2, Punch2);
-            LosePlayer(Game, P1, Punch1);
-            WinP = P2;
-        }
-    }
-    else if(Punch2 < Punch1)
-    {
-        if(Punch1==2 && Punch2==0)
-        {
-            WinPlayer(Game, P2, Punch2);
-            LosePlayer(Game, P1, Punch1);
-            WinP = P2;
-        }
-        else
-        {
-            WinPlayer(Game, P1, Punch1);
-            LosePlayer(Game, P2, Punch2);
-            WinP = P1;
+            WinPlayer(Game, WinP, Punch2);
+            LosePlayer(Game, (WinP == P1)?(P2):(P1), Punch1);
         }
     }
     else
-    {
-        Game->WinPlayer = NULL;
-        Game->LosePlayer = NULL;
-    }
+        CatchError();
+
     return WinP;
 }
 
