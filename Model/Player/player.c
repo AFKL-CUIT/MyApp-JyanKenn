@@ -229,7 +229,7 @@ unsigned char strategy_AI(int Times)
 
     PunchValue = AIGetPunch_R();
 
-    if((Times % 3) == 0 || USER->HP > AI->HP)
+    if( (Times && (Times % 3 == 0)) || USER->HP > AI->HP )
         PunchValue = AIGetPunch_D();
     else if(USER->HP == 1 && AI->HP > USER->HP)
         PunchValue = AIGetPunch_F();
