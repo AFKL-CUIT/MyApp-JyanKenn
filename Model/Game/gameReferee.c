@@ -209,5 +209,5 @@ void GameOver()
     ThisGame->WinPlayer = ThisGame->LosePlayer = NULL;
     ThisGame->RoundTimes = 0;
 
-    SaveGameData();
+    UpdateGameData();
 }

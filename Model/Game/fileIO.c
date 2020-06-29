@@ -74,6 +74,7 @@ int LoadData(GAMEDATA* GP)
 void InitSave()
 {
     int i = 0;
+    GAMEDATA* TmpClear = NULL;
     GAMEDATA* TmpLoadData = (GAMEDATA*)malloc(sizeof(GAMEDATA));
     GAMEDATA* TmpUserData = USER->PlayerGameData;
     
@@ -131,14 +132,15 @@ void InitSave()
     else
         CatchError();
 
-    free(TmpLoadData);
+    for(TmpClear = TmpLoadData; TmpClear != NULL; TmpClear = TmpClear->NextGameMode)
+        free(TmpClear);
 }
 
 /**
  * From fileIO.c
  * ¥¢¥Ê”Œœ∑
  */
-int SaveGameData()
+int UpdateGameData()
 {
     GAMEDATA* Tmp = NULL;
 
