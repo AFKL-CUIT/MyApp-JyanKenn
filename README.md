@@ -4,6 +4,7 @@
 大一工程实践——猜拳游戏
 
 ## 如何游玩
+Windows Only!!!
 切换到对应目录并输入以下命令
 ```powershell
 gcc main.c -w -o main.exe
